@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>김수지의 포트폴리오</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/styles.css">
+
+    <script src='http://code.jquery.com/jquery-1.11.3.min.js'></script>
+    <style>
+        /* header */
+        header {
+            height: auto;
+            position: relative;
+            border-bottom: 1px solid #eee;
+        }
+
+        header .inner {
+            position: relative;
+            max-width: 1080px;
+            margin: 0 auto;
+            padding-left: 20px;
+            padding-top: 20px;
+            display: flow-root;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            margin-top: 20px;
+        }
+
+
+        /* topGnb */
+        header .inner .topGnb {
+            position: absolute;
+            right: 0px;
+            margin-right: 20px;
+        }
+
+        header .inner .topGnb li {
+            float: left;
+            display: inline-block;
+            margin-left: 20px;
+            font-size: 14px;
+            padding: 2px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        header .inner .topGnb li:hover {
+            background: #ff9800;
+        }
+
+        header .inner .topGnb li.topGnbSelected {
+            background: #ff9800;
+        }
+
+        header .inner .topGnb li span {}
+
+
+        /* bottomGnb */
+        header .inner .bottomGnb {
+            margin-top: 60px;
+        }
+
+        header .inner .bottomGnb li {
+            float: left;
+            margin-right: 40px;
+            padding: 22px 4px 24px;
+            display: block;
+            position: relative;
+            font-size: 14px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        header .inner .bottomGnb li:hover {
+            color: #ff9800;
+        }
+
+        header .inner .bottomGnb li span {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: block;
+            height: 4px;
+        }
+
+        header .inner .bottomGnb li.bottomGnbSelected {
+            color: #ff9800;
+        }
+
+        header .inner .bottomGnb li.bottomGnbSelected span {
+            background-color: #ff9800;
+        }
+
+
+        /* title */
+        header .inner .title {
+            margin-top: 60px;
+            font-size: 40px;
+            font-weight: 100;
+            position: relative;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        header .inner .title li {
+            position: relative;
+        }
+
+        header .inner .title li span {}
+
+        header .inner .title li span.titleSense {
+            font-weight: 600;
+        }
+
+        header .inner .title li span.titleDot {
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            border-radius: 2000px;
+            background: #ff9800;
+            position: absolute;
+            top: -7px;
+            left: 0px;
+        }
+
+        header .inner .title li span#titleDot1 {
+            left: 16px;
+        }
+
+        header .inner .title li span#titleDot2 {
+            left: 52px;
+        }
+
+        header .inner .title li span.titleName {
+            color: #ff9800;
+            font-weight: 600;
+        }
+
+        /* content */
+        .content {
+            position: relative;
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 20px;
+            height: 150px;
+            margin-top: 20px;
+        }
+
+        .content .contentList {
+            position: relative;
+        }
+
+        .content .contentList ul {
+            position: relative;
+        }
+
+        .content .contentList ul li {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .content .contentList ul li div.contentWrap {
+            position: relative;
+        }
+
+        .content .contentList ul li div.contentWrap .contentImg {
+            width: 300px;
+            height: 300px;
+            background: pink;
+            position: relative;
+        }
+
+        .content .contentList ul li div.contentWrap .contentDimmed {}
+
+        .content .contentList ul li div.contentWrap .contentInfo {
+            position: relative;
+        }
+
+        .content .contentList ul li div.contentWrap .contentInfo h4 {
+            font-size: 33px;
+            font-weight: 500;
+            position: absolute;
+            top: -25px;
+            left: 20px;
+        }
+
+        .content .contentList ul li div.contentWrap .contentInfo h5 {
+            font-size: 12px;
+            font-weight: 200;
+            position: absolute;
+            top: 14px;
+            left: 22px;
+        }
+
+        /* CSS Animations */
+        @-webkit-keyframes fadeout {
+            0% {
+                background: #fff;
+            }
+
+            10% {
+                background: #eee;
+            }
+
+            100% {
+                background: #fff;
+            }
+        }
+
+        @-moz-keyframes fadeout {
+            0% {
+                background: #fff;
+            }
+
+            10% {
+                background: #eee;
+            }
+
+            100% {
+                background: #fff;
+            }
+        }
+
+        @-o-keyframes fadeout {
+            0% {
+                background: #fff;
+            }
+
+            10% {
+                background: #eee;
+            }
+
+            100% {
+                background: #fff;
+            }
+        }
+
+        @keyframes fadeout {
+            0% {
+                background: #fff;
+            }
+
+            10% {
+                background: #eee;
+            }
+
+            100% {
+                background: #fff;
+            }
+        }
+
+        .list {
+            max-width: 70em;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .list li {
+            border-bottom: 1px solid #ccc;
+            display: table;
+            border-collapse: collapse;
+
+            padding: 1.1%;
+            display: block;
+            width: 31%;
+            float: left;
+            background: none;
+            border: 0;
+        }
+
+        .list li a.listInner {
+            display: table-row;
+            overflow: hidden;
+        }
+
+        .listImg {
+            display: table-cell;
+            vertical-align: middle;
+            width: 40%;
+            padding-right: 1em;
+        }
+
+        .listImg img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .listText {
+            display: table-cell;
+            vertical-align: middle;
+            width: 60%;
+            color: #000;
+            font-size: 33px;
+            font-weight: 300;
+            position: relative;
+            top: -25px;
+            left: 15px;
+        }
+
+        .listSub {
+            font-size: 18px;
+        }
+
+        .listHead {
+            font-weight: 300;
+        }
+
+        .listImg,
+        .listText,
+        .listInner {
+            display: block;
+            width: auto;
+            padding: 0;
+        }
+
+
+        /* sidebar */
+        .sidebar {
+            position: fixed;
+            top: 0px;
+            right: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 400;
+            box-sizing: border-box;
+            display: none;
+        }
+
+        .sidebar .rightPanel {
+            position: fixed;
+            top: 0px;
+            right: 0px;
+            overflow: auto;
+            width: 278px;
+            height: 100%;
+            z-index: 401;
+            padding: 94px 24px 40px;
+            background: pink;
+            box-sizing: border-box;
+            -webkit-transition: right .5s;
+        }
+
+        .sidebar .dimmed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 300;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+
+
+
+        @media screen and (max-width: 780px) {
+
+            .list li {
+                width: 45%;
+                padding: 2.5%;
+            }
+
+            .listImg img {
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+
+            .list li {
+                width: 100%;
+                padding: 0%;
+            }
+
+            .listImg img {
+                width: 100%;
+            }
+        }
+
+        .popup {
+            position: fixed;
+            z-index: 450;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+        }
+
+        .popupBG {
+            background: #000;
+            position: fixed;
+            z-index: 450;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            opacity: 0.4;
+        }
+
+        .popupInner {
+            background: #fff;
+            border-radius: 30px 30px 0px 0px;
+            position: fixed;
+            box-shadow: 0px 3px 7px 7px rgba(0, 0, 0, 0.16);
+            /*            0 1px 9px 0 rgba(0, 0, 0, 0.58)*/
+            z-index: 500;
+            top: 62px;
+            left: 15px;
+            right: 15px;
+            bottom: 0px;
+        }
+
+        .popupInner .popupTop {
+            position: fixed;
+            top: 62px;
+            left: 15px;
+            height: 50px;
+            bottom: 15px;
+            right: 15px;
+            font-weight: 400;
+            font-size: 13px;
+            color: #000;
+            border-radius: 30px 30px 0px 0px;
+        }
+
+        .popupInner .popupTop ul {
+            display: inline-block;
+            margin-top: 15px;
+            margin-left: 20px;
+        }
+
+        .popupInner .popupTop ul li {
+            float: left;
+            margin-right: 10px;
+            padding: 5px 10px 5px 10px;
+        }
+
+        .popupInner .popupTop ul .popupTopSelected {
+            background: #ff9800;
+            box-shadow: 2px 2px 6px 2px rgba(222, 222, 222, 0.36);
+            border-radius: 300px;
+        }
+
+        .popupClose {
+            background: #ff9800;
+            position: fixed;
+            width: 30p;
+            right: 20px;
+            /* width: 34px; */
+            top: 15px;
+            width: 35px;
+            height: 35px;
+            border-radius: 100px;
+        }
+
+        .popupClose img {
+            width: 23px;
+            padding: -7px;
+            position: relative;
+            margin: 0 auto;
+            display: block;
+            margin-top: 6px;
+        }
+
+    </style>
+</head>
+
+<header>
+    <div class="inner">
+        <ul class="topGnb">
+            <li class="topGnbSelected">protfoilo<span></span></li>
+            <li>profile<span></span></li>
+            <li>contact<span></span></li>
+        </ul>
+
+        <ul class="title">
+            <li>
+                <span class="titleSense">센스</span>있는
+                <span class="titleDot" id="titleDot1"></span>
+                <span class="titleDot" id="titleDot2"></span>
+            </li>
+            <li>개발자</li>
+            <li><span class="titleName">김수지</span>입니다</li>
+        </ul>
+
+        <ul class="bottomGnb">
+            <li class="bottomGnbSelected">Mobile<span></span></li>
+            <li>Web<span></span></li>
+            <li>졸업작품<span></span></li>
+        </ul>
+    </div>
+</header>
+
+<aside class="sidebar">
+    <div class="dimmed"></div>
+    <div class="rightPanel"></div>
+</aside>
+
+<section class="content">
+    <ul class="list">
+        <li>
+            <a href="#" class="listInner">
+                <div class="listImg">
+                    <img src="http://placehold.it/600x600" alt="Image Alt Text" />
+                    <div class="listDimmed"></div>
+                </div>
+                <div class="listText">
+                    <h4 class="listHead">Create 1</h4>
+                    <p class="listSub">Summary of content</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="listInner">
+                <div class="listImg">
+                    <img src="http://placehold.it/600x600" alt="Image Alt Text" />
+                    <div class="listDimmed"></div>
+                </div>
+                <div class="listText">
+                    <h4 class="listHead">Create 1</h4>
+                    <p class="listSub">Summary of content</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="listInner">
+                <div class="listImg">
+                    <img src="http://placehold.it/600x600" alt="Image Alt Text" />
+                    <div class="listDimmed"></div>
+                </div>
+                <div class="listText">
+                    <h4 class="listHead">Create 1</h4>
+                    <p class="listSub">Summary of content</p>
+                </div>
+            </a>
+        </li>
+    </ul>
+</section>
+
+<div class="popup">
+
+    <div class="popupBG"></div>
+    <div class="popupInner">
+        <div class="popupTop">
+            <ul>
+                <li>프로젝트 소개</li>
+                <li class="popupTopSelected">기획 과정</li>
+                <li>개발 과정</li>
+                <li>프로젝트 후기</li>
+            </ul>
+
+            <div class="popupClose">
+                <img src="images/closeBtnBlack.png">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+<script src="js/index.js"></script>
+
+</html>
